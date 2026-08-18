@@ -13,6 +13,8 @@
 
 - Bilingual home, services, training, media, about, and insights pages
 - Detail routes for all 12 services and 10 enterprise training programmes
+- Featured Sovereign Cloud Native Platform service for on-prem, European provider, public-cloud, and hybrid deployments
+- Sovereign service covers assessment, open-source platform foundations, managed operations, and team enablement
 - Seven migrated insight topics with Turkish and English detail routes
 - Original Ayti.Tech and Ottoo logos, legacy brand palette, and client logo strip
 - Official Ayti.Tech logo used as the site favicon
@@ -25,7 +27,7 @@
 
 ## Verified
 
-- `npm run build`: 82 static pages
+- `npm run build`: 84 static pages
 - Mobile viewport at 390 px: no horizontal overflow
 - Desktop viewport at 1440 px: hero fits the first viewport
 - Internal crawl: no 404 responses, broken brand images, or incorrect email links

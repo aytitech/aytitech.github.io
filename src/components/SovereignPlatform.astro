@@ -1,0 +1,63 @@
+---
+interface Props { lang?: 'en' | 'tr'; }
+const { lang = 'en' } = Astro.props;
+const isEnglish = lang === 'en';
+const href = isEnglish ? '/services/sovereign-cloud-native-platform' : '/tr/services/sovereign-cloud-native-platform';
+const environments = isEnglish
+	? ['Your data center', 'European cloud provider', 'Public cloud']
+	: ['Kendi veri merkeziniz', 'Avrupa merkezli cloud provider', 'Public cloud'];
+const platform = ['Kubernetes', 'GitOps', 'IaC', 'Observability', 'DevSecOps'];
+---
+<section class="sovereign">
+	<div class="container sovereign-grid">
+		<div class="sovereign-copy">
+			<p class="eyebrow">{isEnglish ? 'Featured service' : 'Öne çıkan hizmet'}</p>
+			<h2>{isEnglish ? 'Cloud Native. Under your control.' : 'Cloud Native. Kontrol sizde.'}</h2>
+			<p class="lead">{isEnglish
+				? 'We design, build and operate a modern application platform wherever your data and workloads need to live, using open-source foundations and portable Cloud Native practices.'
+				: 'Veriniz ve workload’larınız nerede bulunması gerekiyorsa, açık kaynak temeller ve taşınabilir Cloud Native pratiklerle modern uygulama platformunuzu tasarlar, kurar ve işletiriz.'}</p>
+			<ul>
+				<li>{isEnglish ? 'Data residency and operational control' : 'Veri konumu ve operasyonel kontrol'}</li>
+				<li>{isEnglish ? 'Reduced provider dependency' : 'Azaltılmış provider bağımlılığı'}</li>
+				<li>{isEnglish ? 'Managed operations and team enablement' : 'Yönetilen operasyon ve ekip yetkinleştirme'}</li>
+			</ul>
+			<a class="button" href={href}>{isEnglish ? 'Explore the platform service' : 'Platform hizmetini keşfedin'} <span aria-hidden="true">→</span></a>
+		</div>
+		<div class="platform-map" aria-label={isEnglish ? 'Supported infrastructure and platform layers' : 'Desteklenen altyapı ve platform katmanları'}>
+			<div class="map-label">{isEnglish ? 'RUN WHERE YOU CHOOSE' : 'SEÇTİĞİNİZ ORTAMDA ÇALIŞIR'}</div>
+			<div class="environment-row">{environments.map(environment => <span>{environment}</span>)}</div>
+			<div class="connector" aria-hidden="true"></div>
+			<div class="platform-layer">
+				<strong>{isEnglish ? 'Sovereign platform layer' : 'Egemen platform katmanı'}</strong>
+				<div>{platform.map(item => <span>{item}</span>)}</div>
+			</div>
+			<div class="control-row">
+				<span>{isEnglish ? 'Your data' : 'Veriniz'}</span>
+				<span>{isEnglish ? 'Your policies' : 'Politikalarınız'}</span>
+				<span>{isEnglish ? 'Your operating model' : 'İşletim modeliniz'}</span>
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+	.sovereign{padding:100px 0;background:var(--steel-blue);color:var(--ink)}
+	.sovereign-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+	h2{max-width:640px;margin:0;font-size:clamp(3rem,6vw,6.2rem);line-height:.9;letter-spacing:0}
+	.lead{max-width:650px;margin:34px 0 28px;font-size:1.14rem;line-height:1.7}
+	ul{margin:0 0 34px;padding:0;list-style:none;border-top:1px solid rgba(7,15,23,.28)}
+	li{padding:14px 0;border-bottom:1px solid rgba(7,15,23,.28);font-weight:720}
+	li::before{content:'↗';margin-right:12px}
+	.platform-map{border:1px solid rgba(7,15,23,.42);background:rgba(255,255,255,.2)}
+	.map-label{padding:16px 20px;border-bottom:1px solid rgba(7,15,23,.32);font-size:.7rem;font-weight:850;letter-spacing:.1em}
+	.environment-row,.control-row{display:grid;grid-template-columns:repeat(3,1fr)}
+	.environment-row span,.control-row span{display:grid;min-height:86px;place-items:center;padding:15px;border-right:1px solid rgba(7,15,23,.32);text-align:center;font-size:.8rem;font-weight:750}
+	.environment-row span:last-child,.control-row span:last-child{border-right:0}
+	.connector{height:46px;border-top:1px solid rgba(7,15,23,.32);border-bottom:1px solid rgba(7,15,23,.32);background:linear-gradient(90deg,transparent 49.8%,rgba(7,15,23,.45) 50%,transparent 50.2%)}
+	.platform-layer{padding:30px 24px;background:var(--ink);color:white}
+	.platform-layer strong{display:block;margin-bottom:24px;font-size:1.3rem}
+	.platform-layer div{display:flex;flex-wrap:wrap;gap:8px}
+	.platform-layer span{padding:8px 11px;border:1px solid #50605a;font-size:.72rem;font-weight:720}
+	.control-row{border-top:1px solid rgba(7,15,23,.32);background:var(--signal)}
+	@media(max-width:850px){.sovereign{padding:70px 0}.sovereign-grid{grid-template-columns:1fr;gap:55px}}
+	@media(max-width:520px){.environment-row,.control-row{grid-template-columns:1fr}.environment-row span,.control-row span{min-height:64px;border-right:0;border-bottom:1px solid rgba(7,15,23,.32)}.environment-row span:last-child,.control-row span:last-child{border-bottom:0}}
+</style>
