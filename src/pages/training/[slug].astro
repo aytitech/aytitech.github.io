@@ -4,7 +4,19 @@ import { trainings } from '../../data/trainings';
 export function getStaticPaths() { return trainings.map((training) => ({ params: { slug: training.slug }, props: { training } })); }
 const { training } = Astro.props;
 ---
-<SiteLayout lang="en" title={`${training.en.title} | Ayti.Tech`} description={training.en.summary}>
+<SiteLayout lang="en" title={`${training.en.title} | Ayti.Tech`} description={training.en.summary} schema={{
+	'@type': 'Course',
+	name: training.en.title,
+	description: training.en.summary,
+	provider: { '@id': 'https://ayti.tech/#organization' },
+	educationalLevel: training.level,
+	inLanguage: 'en',
+	hasCourseInstance: {
+		'@type': 'CourseInstance',
+		courseMode: ['Onsite', 'Online'],
+		courseWorkload: `P${training.duration}D`,
+	},
+}}>
 	<header class="hero"><div class="container"><a href="/training">← Training catalogue</a><p class="eyebrow">{training.code} · {training.level}</p><h1>{training.en.title}</h1><p class="lead">{training.en.summary}</p></div></header>
 	<section class="facts"><div class="container facts-grid"><div><span>Duration</span><b>{training.duration} days</b></div><div><span>Audience</span><b>{training.en.audience}</b></div><div><span>Prerequisites</span><b>{training.en.prerequisites}</b></div></div></section>
 	<section class="section content"><div class="container content-grid"><div><p class="eyebrow">Curriculum</p><h2>What we cover</h2><ol>{training.en.topics.map((topic, index) => <li><span>{String(index + 1).padStart(2,'0')}</span>{topic}</li>)}</ol></div><div><p class="eyebrow">Outcomes</p><h2>What the team takes away</h2><ul>{training.en.outcomes.map((outcome) => <li>{outcome}</li>)}</ul><a class="button" href="#contact">Design this programme <span>↗</span></a></div></div></section>

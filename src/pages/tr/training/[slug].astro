@@ -3,8 +3,23 @@ import SiteLayout from '../../../layouts/SiteLayout.astro';
 import { trainings } from '../../../data/trainings';
 export function getStaticPaths() { return trainings.map((training) => ({ params: { slug: training.slug }, props: { training } })); }
 const { training } = Astro.props;
+const seoTitle = training.slug === 'azure-cloud-infrastructure'
+	? 'Azure Altyapı Tasarımı ve Yönetimi | Ayti.Tech'
+	: `${training.tr.title} | Ayti.Tech`;
 ---
-<SiteLayout lang="tr" title={`${training.tr.title} | Ayti.Tech`} description={training.tr.summary}>
+<SiteLayout lang="tr" title={seoTitle} description={training.tr.summary} schema={{
+	'@type': 'Course',
+	name: training.tr.title,
+	description: training.tr.summary,
+	provider: { '@id': 'https://ayti.tech/#organization' },
+	educationalLevel: training.level,
+	inLanguage: 'tr',
+	hasCourseInstance: {
+		'@type': 'CourseInstance',
+		courseMode: ['Yerinde', 'Çevrimiçi'],
+		courseWorkload: `P${training.duration}D`,
+	},
+}}>
 	<header class="hero"><div class="container"><a href="/tr/training">← Eğitim kataloğu</a><p class="eyebrow">{training.code} · {training.level}</p><h1>{training.tr.title}</h1><p class="lead">{training.tr.summary}</p></div></header>
 	<section class="facts"><div class="container facts-grid"><div><span>Süre</span><b>{training.duration} gün</b></div><div><span>Katılımcı profili</span><b>{training.tr.audience}</b></div><div><span>Ön gereksinimler</span><b>{training.tr.prerequisites}</b></div></div></section>
 	<section class="section content"><div class="container content-grid"><div><p class="eyebrow">Müfredat</p><h2>Eğitim içeriği</h2><ol>{training.tr.topics.map((topic, index) => <li><span>{String(index + 1).padStart(2,'0')}</span>{topic}</li>)}</ol></div><div><p class="eyebrow">Kazanımlar</p><h2>Ekibin kazanacakları</h2><ul>{training.tr.outcomes.map((outcome) => <li>{outcome}</li>)}</ul><a class="button" href="#contact">Bu programı tasarlayalım <span>↗</span></a></div></div></section>

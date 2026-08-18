@@ -3,8 +3,23 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 import { insights } from '../../data/insights';
 export function getStaticPaths() { return insights.map((item) => ({ params: { slug: item.slug }, props: { item } })); }
 const { item } = Astro.props;
+const seoTitles: Record<string, string> = {
+	'managed-cloud-services': 'Managed Cloud Services: Infrastructure Control | Ayti.Tech',
+	'ci-cd-failures': 'CI/CD Failure Patterns and Fixes | Ayti.Tech',
+};
+const seoTitle = seoTitles[item.slug] ?? `${item.en.title} | Ayti.Tech`;
 ---
-<SiteLayout lang="en" title={`${item.en.title} | Ayti.Tech`} description={item.en.excerpt}>
+<SiteLayout lang="en" type="article" title={seoTitle} description={item.en.excerpt} schema={{
+	'@type': 'Article',
+	headline: item.en.title,
+	description: item.en.excerpt,
+	datePublished: item.date,
+	dateModified: item.date,
+	inLanguage: 'en',
+	author: { '@id': 'https://ayti.tech/#organization' },
+	publisher: { '@id': 'https://ayti.tech/#organization' },
+	image: 'https://ayti.tech/og-image.png',
+}}>
 	<article><header><div class="container"><a href="/insights">← All insights</a><p class="eyebrow">{item.tags.join(' · ')} · {item.date}</p><h1>{item.en.title}</h1><p class="lead">{item.en.excerpt}</p></div></header><div class="container body">{item.en.sections.map((section) => <section><h2>{section.heading}</h2><p>{section.body}</p></section>)}</div></article>
 </SiteLayout>
 <style>

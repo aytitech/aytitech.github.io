@@ -5,7 +5,14 @@ export function getStaticPaths() { return services.map((service) => ({ params: {
 const { service } = Astro.props;
 const isSovereign = service.slug === 'sovereign-cloud-native-platform';
 ---
-<SiteLayout lang="en" title={`${service.en.title} | Ayti.Tech`} description={service.en.summary}>
+<SiteLayout lang="en" title={`${service.en.title} | Ayti.Tech`} description={service.en.summary} schema={{
+	'@type': 'Service',
+	name: service.en.title,
+	description: service.en.summary,
+	serviceType: service.group,
+	provider: { '@id': 'https://ayti.tech/#organization' },
+	areaServed: ['Türkiye', 'European Union'],
+}}>
 	<header class={`hero hero--${service.color}`}><div class="container"><a href="/services">← All services</a><p class="eyebrow">{service.group}</p><h1>{service.en.title}</h1><p class="lead">{service.en.summary}</p></div></header>
 	<section class="section detail"><div class="container detail-grid"><div><p class="eyebrow">Scope</p><h2>What we do</h2><ol>{service.en.capabilities.map((item,index)=><li><span>{String(index+1).padStart(2,'0')}</span>{item}</li>)}</ol></div><div><p class="eyebrow">Outcomes</p><h2>What changes</h2><ul>{service.en.outcomes.map(item=><li>{item}</li>)}</ul></div></div></section>
 	{isSovereign && <section class="sovereign-detail">

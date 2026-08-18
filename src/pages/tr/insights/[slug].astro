@@ -4,8 +4,25 @@ import { insights } from '../../../data/insights';
 
 export function getStaticPaths() { return insights.map((item) => ({ params: { slug: item.slug }, props: { item } })); }
 const { item } = Astro.props;
+const seoTitles: Record<string, string> = {
+	'managed-cloud-services': 'Bulut Yönetim Hizmetleri | Ayti.Tech',
+	'ci-cd-failures': 'CI/CD Hataları ve Çözüm Yolları | Ayti.Tech',
+	'cloud-migration-roadmap': 'Bulut Geçişi Yol Haritası | Ayti.Tech',
+	'why-cloud-costs-grow': 'Bulut Maliyetleri Neden Artıyor? | Ayti.Tech',
+};
+const seoTitle = seoTitles[item.slug] ?? `${item.tr.title} | Ayti.Tech`;
 ---
-<SiteLayout lang="tr" title={`${item.tr.title} | Ayti.Tech`} description={item.tr.excerpt}>
+<SiteLayout lang="tr" type="article" title={seoTitle} description={item.tr.excerpt} schema={{
+	'@type': 'Article',
+	headline: item.tr.title,
+	description: item.tr.excerpt,
+	datePublished: item.date,
+	dateModified: item.date,
+	inLanguage: 'tr',
+	author: { '@id': 'https://ayti.tech/#organization' },
+	publisher: { '@id': 'https://ayti.tech/#organization' },
+	image: 'https://ayti.tech/og-image.png',
+}}>
 	<article><header><div class="container"><a href="/tr/insights">← Tüm içgörüler</a><p class="eyebrow">{item.tags.join(' · ')} · {item.date}</p><h1>{item.tr.title}</h1><p class="lead">{item.tr.excerpt}</p></div></header><div class="container body">{item.tr.sections.map((section) => <section><h2>{section.heading}</h2><p>{section.body}</p></section>)}</div></article>
 </SiteLayout>
 <style>
