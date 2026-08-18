@@ -1,0 +1,18 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const catalogue = ['Cloud Native Uygulama Geliştirme', 'DevOps Metodolojisi ve Temel Kavramlar', 'Docker ve Container Teknolojileri', 'Kubernetes’e Giriş', 'AWS Cloud Altyapıları', 'Microsoft Azure Altyapıları', 'Terraform ile Infrastructure as Code', 'Git, GitHub ve GitHub Actions', 'Cloud Native Hackathon'];
+---
+<SiteLayout title="Kurumsal Eğitim | Ayti.Tech" description="Cloud, DevOps ve platform engineering alanlarında kuruma özel, uygulamalı teknik eğitim programları.">
+	<section class="training-hero"><div class="container"><p class="eyebrow">Training & Enablement</p><h1>Bilgiyi<br />ekibinize<br />yerleştirin.</h1><p>Hazır sunum paketleri değil, bağlamınıza göre tasarlanan ve gerçek pratikle pekişen teknik programlar.</p></div></section>
+	<section class="section format"><div class="container format-grid"><div><p class="eyebrow">Program tasarımı</p><h2 class="section-heading">Öğrenme hedefinden çalışan pratiğe.</h2></div><ol><li><b>İhtiyaç analizi</b><span>Ekip rolleri, mevcut yetkinlik ve iş hedefleri.</span></li><li><b>Özel müfredat</b><span>Doğru derinlik, örnekler ve uygulama senaryoları.</span></li><li><b>Uygulamalı öğrenme</b><span>Canlı lab, workshop, hackathon ve ofis saatleri.</span></li><li><b>Gelişim takibi</b><span>Değerlendirme, geri bildirim ve sonraki adımlar.</span></li></ol></div></section>
+	<section class="section catalogue"><div class="container"><p class="eyebrow">Eğitim kataloğu</p><h2 class="section-heading">Temelden production pratiğine.</h2><div class="catalogue-grid">{catalogue.map((item, index) => <div><span>{String(index + 1).padStart(2, '0')}</span><h3>{item}</h3></div>)}</div></div></section>
+	<section class="section video"><div class="container video-grid"><div><p class="eyebrow">Bireysel öğrenme</p><h2>Türkçe video eğitimler.</h2></div><div><p>AWS, Docker ve Kubernetes eğitimlerimizle teknik bilgiye dil bariyeri olmadan ulaşın.</p><a class="button" href="https://www.udemy.com/user/zgrztrk3/">Udemy profilini aç <span aria-hidden="true">↗</span></a></div></div></section>
+</SiteLayout>
+<style>
+	.training-hero { padding: 100px 0; background: var(--signal); }.training-hero h1 { margin: 0; font-size: clamp(4rem, 11vw, 9rem); line-height: .84; letter-spacing: 0; }.training-hero p:last-child { max-width: 600px; margin: 50px 0 0 auto; font-size: 1.3rem; line-height: 1.6; }
+	.format { background: var(--paper-strong); }.format-grid,.video-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 90px; }.format ol { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }.format li { display: grid; gap: 8px; padding: 22px 0; border-bottom: 1px solid var(--line); }.format li span { color: var(--muted); }
+	.catalogue { background: var(--ink); color: white; }.catalogue-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #46504c; border-left: 1px solid #46504c; }.catalogue-grid div { min-height: 190px; padding: 24px; border-right: 1px solid #46504c; border-bottom: 1px solid #46504c; }.catalogue-grid span { color: var(--signal); font-size: .75rem; font-weight: 850; }.catalogue-grid h3 { margin: 38px 0 0; font-size: 1.25rem; letter-spacing: 0; }
+	.video { background: var(--orange); }.video h2 { margin: 0; font-size: clamp(2.5rem, 5vw, 5rem); line-height: 1; }.video-grid > div:last-child { font-size: 1.15rem; line-height: 1.6; }.video .button { margin-top: 20px; }
+	@media(max-width:760px){.training-hero{padding:70px 0}.format-grid,.video-grid{grid-template-columns:1fr;gap:40px}.catalogue-grid{grid-template-columns:1fr}.catalogue-grid div{min-height:140px}}
+</style>

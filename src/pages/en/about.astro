@@ -1,0 +1,11 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+<SiteLayout lang="en" title="About | Ayti.Tech" description="The Ayti.Tech story, principles and relationship with Ottoo Yazılım A.Ş.">
+	<section class="hero"><div class="container"><p class="eyebrow">About us</p><h1>We create,<br />apply and share<br />knowledge.</h1></div></section>
+	<section class="section story"><div class="container grid"><p class="year">2019 →</p><div><h2>From a content platform to a technical services organization.</h2><p>Özgür Öztürk founded Ayti.Tech to create accessible technical content and training. In 2023, it expanded into consulting, engineering and managed services.</p><p>Today, Ayti.Tech operates as a distinct brand within Istanbul-based Ottoo Yazılım A.Ş., serving organizations in Türkiye and Europe.</p></div></div></section>
+	<section class="principles"><div class="container"><article><span>01</span><h2>Learn in the field</h2><p>We apply what we teach in real systems.</p></article><article><span>02</span><h2>Work from evidence</h2><p>We make decisions with measurable facts.</p></article><article><span>03</span><h2>Leave knowledge</h2><p>We build capability, not dependency.</p></article></div></section>
+</SiteLayout>
+<style>
+	.hero{padding:110px 0 100px;background:var(--blue)}.hero h1{margin:0;font-size:clamp(3.7rem,9vw,8rem);line-height:.9;letter-spacing:0}.story{background:var(--paper-strong)}.grid{display:grid;grid-template-columns:.5fr 1.5fr;gap:80px}.year{font-size:2rem;font-weight:850}.story h2{max-width:800px;margin:0 0 40px;font-size:clamp(2.4rem,5vw,5rem);line-height:1}.story div p{max-width:760px;font-size:1.15rem;line-height:1.75}.principles{background:var(--ink);color:white}.principles .container{display:grid;grid-template-columns:repeat(3,1fr)}article{min-height:340px;padding:42px 32px;border-left:1px solid #47504d}article:last-child{border-right:1px solid #47504d}article span{color:var(--signal);font-size:.75rem;font-weight:850}article h2{margin:110px 0 16px;font-size:2rem}article p{color:#bcc3c0}@media(max-width:760px){.hero{padding:70px 0}.grid{grid-template-columns:1fr;gap:20px}.principles .container{grid-template-columns:1fr}article{min-height:250px;border-right:1px solid #47504d;border-bottom:1px solid #47504d}article h2{margin-top:70px}}
+</style>

@@ -1,0 +1,15 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+<SiteLayout title="Hakkımızda | Ayti.Tech" description="Ayti.Tech’in hikayesi, çalışma ilkeleri ve Ottoo Yazılım A.Ş. ile ilişkisi.">
+	<section class="about-hero"><div class="container"><p class="eyebrow">Hakkımızda</p><h1>Bilgiyi üretir,<br />uygular,<br />paylaşırız.</h1></div></section>
+	<section class="section story"><div class="container story-grid"><p class="year">2019 →</p><div><h2>Bir içerik platformundan teknik hizmet organizasyonuna.</h2><p>Ayti.Tech, Özgür Öztürk tarafından Türkçe teknik içerik ve eğitim kaynakları üretmek amacıyla kuruldu. 2023’te danışmanlık, mühendislik ve yönetilen hizmetleri kapsayacak şekilde genişledi.</p><p>Bugün İstanbul merkezli Ottoo Yazılım A.Ş. bünyesinde ayrı bir marka ve organizasyon olarak çalışıyor; Türkiye ve Avrupa’daki kurumlara cloud, DevOps, platform engineering ve teknik eğitim hizmetleri sunuyor.</p></div></div></section>
+	<section class="principles"><div class="container"><article><span>01</span><h2>Sahadan öğren</h2><p>Anlattığımız şeyleri gerçek sistemlerde uygularız.</p></article><article><span>02</span><h2>Kanıtla ilerle</h2><p>Varsayımlar yerine ölçülebilir gerçeklerle karar veririz.</p></article><article><span>03</span><h2>Bilgiyi bırak</h2><p>Bağımlılık değil, yetkinlik oluşturan işler teslim ederiz.</p></article></div></section>
+	<section class="section identity"><div class="container"><p class="eyebrow">Organizasyon</p><h2 class="section-heading">Ayti.Tech, Ottoo Yazılım A.Ş. markasıdır.</h2><p>Maslak Mh. Maslak Meydan Sk. Kapı No:1/55<br />Sarıyer / İstanbul</p></div></section>
+</SiteLayout>
+<style>
+	.about-hero { padding: 110px 0 100px; background: var(--blue); }.about-hero h1 { margin: 0; font-size: clamp(3.7rem, 9vw, 8rem); line-height: .9; letter-spacing: 0; }
+	.story { background: var(--paper-strong); }.story-grid { display:grid;grid-template-columns:.5fr 1.5fr;gap:80px}.year{font-size:2rem;font-weight:850}.story h2{max-width:800px;margin:0 0 40px;font-size:clamp(2.4rem,5vw,5rem);line-height:1}.story div p{max-width:760px;font-size:1.15rem;line-height:1.75}
+	.principles{background:var(--ink);color:white}.principles .container{display:grid;grid-template-columns:repeat(3,1fr)}article{min-height:340px;padding:42px 32px;border-left:1px solid #47504d}article:last-child{border-right:1px solid #47504d}article span{color:var(--signal);font-size:.75rem;font-weight:850}article h2{margin:110px 0 16px;font-size:2rem}article p{color:#bcc3c0;line-height:1.6}.identity{background:var(--orange)}.identity p:last-child{line-height:1.7}
+	@media(max-width:760px){.about-hero{padding:70px 0}.story-grid{grid-template-columns:1fr;gap:20px}.principles .container{grid-template-columns:1fr}article{min-height:260px;border-right:1px solid #47504d;border-bottom:1px solid #47504d}article h2{margin-top:70px}}
+</style>
