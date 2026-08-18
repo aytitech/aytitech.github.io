@@ -1,11 +1,12 @@
 ---
-import SiteLayout from '../../layouts/SiteLayout.astro';
-import { insights } from '../../data/insights';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { insights } from '../../../data/insights';
+
 export function getStaticPaths() { return insights.map((item) => ({ params: { slug: item.slug }, props: { item } })); }
 const { item } = Astro.props;
 ---
-<SiteLayout lang="en" title={`${item.en.title} | Ayti.Tech`} description={item.en.excerpt}>
-	<article><header><div class="container"><a href="/insights">← All insights</a><p class="eyebrow">{item.tags.join(' · ')} · {item.date}</p><h1>{item.en.title}</h1><p class="lead">{item.en.excerpt}</p></div></header><div class="container body">{item.en.sections.map((section) => <section><h2>{section.heading}</h2><p>{section.body}</p></section>)}</div></article>
+<SiteLayout lang="tr" title={`${item.tr.title} | Ayti.Tech`} description={item.tr.excerpt}>
+	<article><header><div class="container"><a href="/tr/insights">← Tüm içgörüler</a><p class="eyebrow">{item.tags.join(' · ')} · {item.date}</p><h1>{item.tr.title}</h1><p class="lead">{item.tr.excerpt}</p></div></header><div class="container body">{item.tr.sections.map((section) => <section><h2>{section.heading}</h2><p>{section.body}</p></section>)}</div></article>
 </SiteLayout>
 <style>
 	header{padding:80px 0 90px;background:var(--paper-strong)}header a{display:inline-block;margin-bottom:70px;font-size:.85rem;font-weight:750;text-decoration:none}h1{max-width:1050px;margin:0;font-size:clamp(2.8rem,7vw,6.8rem);line-height:.96;letter-spacing:0}.lead{max-width:720px;margin:46px 0 0;font-size:1.3rem;line-height:1.65}.body{max-width:800px;padding-top:80px;padding-bottom:100px}.body section{margin-bottom:65px}.body h2{font-size:2rem;letter-spacing:0}.body p{font-size:1.12rem;line-height:1.85;color:#35403c}@media(max-width:600px){header{padding:55px 0 70px}header a{margin-bottom:50px}.body{padding-top:60px}}

@@ -1,0 +1,27 @@
+---
+interface Props { lang?: 'en' | 'tr'; }
+const { lang = 'en' } = Astro.props;
+const clients = [
+	{ src: '/clients/akbank.png', alt: 'Akbank' },
+	{ src: '/clients/siemens.png', alt: 'Siemens' },
+	{ src: '/clients/sunexpress.png', alt: 'SunExpress' },
+	{ src: '/clients/bek.png', alt: 'Bursa Ecza-Koop' },
+	{ src: '/clients/arebos.png', alt: 'Arebos' },
+];
+---
+<section class="clients" aria-labelledby="clients-heading">
+	<div class="container">
+		<p id="clients-heading" class="eyebrow">{lang === 'en' ? 'Teams we have worked with' : 'Birlikte çalıştığımız ekipler'}</p>
+		<div class="client-grid">
+			{clients.map(client => <div><img src={client.src} alt={client.alt} /></div>)}
+		</div>
+	</div>
+</section>
+<style>
+	.clients{padding:54px 0 64px;background:var(--paper-strong);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+	.client-grid{display:grid;grid-template-columns:repeat(5,1fr);margin-top:34px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+	.client-grid div{display:grid;min-height:112px;place-items:center;padding:25px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+	.client-grid img{width:auto;max-width:145px;max-height:46px;object-fit:contain}
+	.client-grid div:nth-child(4) img{max-height:60px}
+	@media(max-width:760px){.client-grid{grid-template-columns:repeat(2,1fr)}.client-grid div:last-child{grid-column:1/-1}}
+</style>

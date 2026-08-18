@@ -5,5 +5,5 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://aytitech.github.io',
-	integrations: [sitemap()],
+	integrations: [sitemap({ filter: (page) => !page.includes('/en/') })],
 });

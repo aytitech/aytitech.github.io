@@ -1,15 +1,19 @@
 @import '@fontsource-variable/manrope';
 
 :root {
-	--ink: #101614;
-	--ink-soft: #1b2421;
-	--paper: #f5f3ed;
-	--paper-strong: #fffdf7;
+	--ink: #070f17;
+	--ink-soft: #141f29;
+	--paper: #f5f7f9;
+	--paper-strong: #ffffff;
 	--muted: #66706b;
-	--line: #d7d8d1;
-	--signal: #c7ff3d;
-	--blue: #9bd7ff;
-	--orange: #ffb36b;
+	--line: #d8e0e7;
+	--signal: #98da85;
+	--blue: #4aafe9;
+	--orange: #fb8500;
+	--yellow: #ffdf8f;
+	--teal: #4ecdc4;
+	--purple: #9a77ff;
+	--steel-blue: #8cb2d9;
 	--max-width: 1180px;
 	font-family: 'Manrope Variable', sans-serif;
 	color: var(--ink);

@@ -1,0 +1,18 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+const channels = [
+	{ title: 'Ayti.Tech YouTube', text: 'Technical videos, live sessions and practical training on cloud, DevOps and modern infrastructure.', href: 'https://www.youtube.com/aytitech', color: 'orange' },
+	{ title: 'Buluta Doğru', text: 'Özgür Öztürk and Berk Ülsoy discuss the people, decisions and changes shaping the cloud ecosystem.', href: 'https://open.spotify.com/show/3hpPMqXNZXKSJ5q32PffmX', color: 'teal' },
+	{ title: 'Turkish video courses', text: 'Deep, practical AWS, Docker and Kubernetes courses without a language barrier.', href: 'https://www.udemy.com/user/zgrztrk3/', color: 'yellow' },
+	{ title: 'Open source', text: 'Training repositories, examples and engineering work published by the Ayti.Tech organization.', href: 'https://github.com/aytitech', color: 'blue' },
+];
+---
+<SiteLayout lang="en" title="Media & Community | Ayti.Tech" description="Ayti.Tech videos, podcasts, technical community and media production.">
+	<section class="hero"><div class="container"><p class="eyebrow">Media & Community</p><h1>Knowledge<br />travels further<br />when shared.</h1><p>Technical content rooted in field experience, made for the wider engineering community.</p></div></section>
+	<section class="channels">{channels.map(channel=><a class={channel.color} href={channel.href}><div><span>Open channel ↗</span><h2>{channel.title}</h2><p>{channel.text}</p></div></a>)}</section>
+	<section class="section production"><div class="container grid"><div><p class="eyebrow">Media production</p><h2 class="section-heading">Technical depth, made clear.</h2></div><div><p>We produce credible technical videos, podcasts and educational series for technology brands. Domain experts and production teams work together from editorial design through delivery.</p><a class="button" href="#contact">Build a series with us <span>↗</span></a></div></div></section>
+	<section class="community"><div class="container"><p class="eyebrow">Community</p><h2>Cafe Ayti</h2><p>A place for technology professionals to exchange questions, experience and ideas across cloud, software delivery and modern infrastructure.</p><a href="https://cafe.ayti.tech/">Visit the community ↗</a></div></section>
+</SiteLayout>
+<style>
+	.hero{padding:100px 0;background:var(--steel-blue)}.hero h1{margin:0;font-size:clamp(4rem,9vw,8rem);line-height:.86;letter-spacing:0}.hero p:last-child{max-width:620px;margin:50px 0 0 auto;font-size:1.25rem;line-height:1.6}.channels{display:grid;grid-template-columns:1fr 1fr}.channels>a{min-height:340px;padding:52px;color:var(--ink);text-decoration:none;border-right:1px solid rgba(7,15,23,.25);border-bottom:1px solid rgba(7,15,23,.25)}.channels>a:hover div{transform:translateY(-8px)}.channels div{transition:transform .2s}.channels span{font-size:.72rem;font-weight:850;text-transform:uppercase}.channels h2{margin:130px 0 18px;font-size:clamp(2rem,4vw,4rem);line-height:1}.channels p{max-width:560px;line-height:1.6}.orange{background:var(--orange)}.teal{background:var(--teal)}.yellow{background:var(--yellow)}.blue{background:var(--blue)}.production{background:var(--paper-strong)}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:90px}.grid>div:last-child{font-size:1.15rem;line-height:1.7}.grid .button{margin-top:24px}.community{padding:90px 0;background:var(--ink);color:white}.community h2{margin:0;font-size:clamp(3rem,7vw,7rem)}.community p{max-width:680px;font-size:1.15rem;line-height:1.7;color:#bdc6c2}.community a{color:var(--yellow);font-weight:800}@media(max-width:760px){.hero{padding:70px 0}.channels{grid-template-columns:1fr}.channels>a{min-height:270px;padding:34px}.channels h2{margin-top:90px}.grid{grid-template-columns:1fr;gap:40px}}
+</style>

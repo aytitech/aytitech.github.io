@@ -1,0 +1,14 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { services } from '../../../data/services';
+export function getStaticPaths() { return services.map((service) => ({ params: { slug: service.slug }, props: { service } })); }
+const { service } = Astro.props;
+---
+<SiteLayout lang="tr" title={`${service.tr.title} | Ayti.Tech`} description={service.tr.summary}>
+	<header class={`hero hero--${service.color}`}><div class="container"><a href="/tr/services">← Tüm hizmetler</a><p class="eyebrow">{service.group}</p><h1>{service.tr.title}</h1><p class="lead">{service.tr.summary}</p></div></header>
+	<section class="section detail"><div class="container detail-grid"><div><p class="eyebrow">Kapsam</p><h2>Ne yapıyoruz</h2><ol>{service.tr.capabilities.map((item,index)=><li><span>{String(index+1).padStart(2,'0')}</span>{item}</li>)}</ol></div><div><p class="eyebrow">Sonuçlar</p><h2>Ne değişiyor</h2><ul>{service.tr.outcomes.map(item=><li>{item}</li>)}</ul></div></div></section>
+	<section class="approach"><div class="container"><p class="eyebrow">Çalışma modeli</p><h2>Discover. Design. Deliver. Enable.</h2><p>Ekiplerinizle kanıt ve mimari kararlardan başlayarak uygulama, operasyon ve bilgi transferine kadar birlikte çalışırız.</p><a class="button" href="#contact">Bağlamınızı konuşalım <span>↗</span></a></div></section>
+</SiteLayout>
+<style>
+	.hero{padding:75px 0 90px}.hero--yellow{background:var(--yellow)}.hero--teal{background:var(--teal)}.hero--blue{background:var(--blue)}.hero--purple{background:var(--purple)}.hero .container>a{display:inline-block;margin-bottom:65px;font-weight:750;text-decoration:none}.hero h1{max-width:1080px;margin:0;font-size:clamp(3rem,7vw,6.8rem);line-height:.95;letter-spacing:0}.lead{max-width:760px;margin:40px 0 0;font-size:1.25rem;line-height:1.65}.detail{background:var(--paper-strong)}.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px}.detail h2{margin:0 0 38px;font-size:clamp(2.2rem,4vw,4rem);line-height:1}.detail ol,.detail ul{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}.detail li{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);font-weight:720}.detail ol span{color:var(--orange);font-size:.72rem}.detail ul li::before{content:'↗';color:var(--orange)}.approach{padding:90px 0;background:var(--ink);color:white}.approach h2{max-width:850px;margin:0;font-size:clamp(2.8rem,6vw,6rem);line-height:.95}.approach>div>p:not(.eyebrow){max-width:680px;margin:38px 0;font-size:1.15rem;line-height:1.7;color:#c1c9c5}.approach .button{background:var(--orange);border-color:var(--orange);color:var(--ink)}@media(max-width:760px){.hero{padding:55px 0 70px}.detail-grid{grid-template-columns:1fr;gap:60px}}
+</style>

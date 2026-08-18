@@ -21,11 +21,11 @@ The production output is written to `dist/`. Every push to `main` deploys the ou
 
 ## Structure
 
-- `src/pages/`: Turkish and English routes
-- `src/data/insights.ts`: bilingual engineering insight content
+- `src/pages/`: English routes at `/` and Turkish routes at `/tr/`
+- `src/data/`: bilingual services, training, and engineering insight content
 - `src/layouts/`: shared site shell and metadata
 - `src/styles/`: global design tokens and typography
-- `public/`: static assets and crawler directives
+- `public/`: Ayti.Tech/Ottoo branding, client logos, and crawler directives
 
 ## Hosting
 

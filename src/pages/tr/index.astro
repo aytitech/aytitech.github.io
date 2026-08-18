@@ -1,0 +1,116 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import ClientLogos from '../../components/ClientLogos.astro';
+
+const services = [
+	{ number: '01', title: 'Cloud & Platform', text: 'Bulut mimarisi, platform engineering, Kubernetes ve yönetilen operasyonlarla güvenilir altyapılar.', color: 'blue' },
+	{ number: '02', title: 'DevOps & Delivery', text: 'CI/CD, GitOps, güvenlik ve geliştirici deneyimiyle daha hızlı ve öngörülebilir teslimat.', color: 'orange' },
+	{ number: '03', title: 'Training & Enablement', text: 'Gerçek sistemlerden beslenen kurumsal eğitimler, atölyeler ve teknik koçluk.', color: 'signal' },
+];
+---
+
+<SiteLayout lang="tr" title="Ayti.Tech | Cloud, DevOps ve Teknik Eğitim" description="Ayti.Tech, kurumların cloud, platform engineering ve DevOps dönüşümünü gerçek saha deneyimiyle tasarlar, uygular ve ekiplerine aktarır.">
+	<section class="hero">
+		<div class="container hero-grid">
+			<div class="hero-copy reveal">
+				<p class="eyebrow">Cloud · DevOps · Platform Engineering</p>
+				<h1>Teknolojiyi<br />çalışır hale<br />getiriyoruz.</h1>
+			</div>
+			<div class="hero-side reveal">
+				<p>Stratejiyi üretim ortamına taşıyan mühendislik, operasyon ve eğitim hizmetleri.</p>
+				<div class="hero-actions">
+					<a class="button" href="/tr/services">Hizmetleri keşfet <span aria-hidden="true">→</span></a>
+					<a href="#proof">Nasıl çalışıyoruz?</a>
+				</div>
+			</div>
+		</div>
+		<div class="container capability-line" aria-label="Uzmanlık alanları">
+			<span>AWS</span><span>AZURE</span><span>KUBERNETES</span><span>GITHUB</span><span>TERRAFORM</span><span>OPEN SOURCE</span>
+		</div>
+	</section>
+
+	<section class="section services">
+		<div class="container">
+			<p class="eyebrow">Ne yapıyoruz</p>
+			<h2 class="section-heading">Danışmanlık ile eğitimi aynı mühendislik pratiğinde buluşturuyoruz.</h2>
+			<div class="service-list">
+				{services.map((service) => (
+					<a class={`service-row service-row--${service.color}`} href="/tr/services">
+						<span class="service-number">{service.number}</span>
+						<h3>{service.title}</h3>
+						<p>{service.text}</p>
+						<span class="arrow" aria-hidden="true">↗</span>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section id="proof" class="section proof">
+		<div class="container proof-grid">
+			<div>
+				<p class="eyebrow">Sahadan gelen deneyim</p>
+				<h2 class="section-heading">Sunum değil, çalışan sistem teslim ederiz.</h2>
+			</div>
+			<div class="proof-copy">
+				<p>Ayti.Tech, 2019’da Türkçe teknik içerik üretme amacıyla başladı. Bugün Ottoo Yazılım A.Ş. bünyesinde yerel ve uluslararası ekiplere cloud, DevOps ve platform engineering hizmetleri sunuyor.</p>
+				<dl>
+					<div><dt>50+</dt><dd>yıl birleşik saha deneyimi</dd></div>
+					<div><dt>3</dt><dd>birbirini besleyen çalışma alanı</dd></div>
+					<div><dt>2019</dt><dd>Ayti.Tech’in kuruluş yılı</dd></div>
+				</dl>
+			</div>
+		</div>
+	</section>
+	<ClientLogos lang="tr" />
+
+	<section class="section testimonial">
+		<div class="container">
+			<p class="eyebrow">Müşteri deneyimi · SunExpress</p>
+			<blockquote>“Sekiz aylık uygulamalı program ve Cloud Native Hackathon, ekiplerimizin yetkinliklerini artırdı ve dijital dönüşümümüzde kritik bir aşama oluşturdu.”</blockquote>
+			<p class="attribution">Cenk Uysal · IT Systems & Platform Manager</p>
+		</div>
+	</section>
+</SiteLayout>
+
+<style>
+	.hero { min-height: calc(100svh - 72px); display: flex; flex-direction: column; justify-content: space-between; padding: 88px 0 30px; background: var(--paper-strong); }
+	.hero-grid { display: grid; grid-template-columns: 1.65fr .75fr; gap: 70px; align-items: end; }
+	h1 { margin: 0; font-size: clamp(4rem, 9.7vw, 8.4rem); line-height: .84; letter-spacing: 0; }
+	.hero-side { padding-bottom: 12px; }
+	.hero-side > p { margin: 0 0 34px; font-size: clamp(1.15rem, 2vw, 1.5rem); line-height: 1.45; }
+	.hero-actions { display: flex; align-items: center; gap: 24px; font-weight: 750; }
+	.capability-line { display: flex; justify-content: space-between; gap: 20px; padding-top: 28px; border-top: 1px solid var(--line); color: var(--muted); font-size: .68rem; font-weight: 850; letter-spacing: .08em; }
+	.services { background: var(--ink); color: white; }
+	.service-list { border-top: 1px solid #414946; }
+	.service-row { display: grid; grid-template-columns: 70px 1fr 1.2fr 40px; gap: 28px; align-items: center; min-height: 170px; border-bottom: 1px solid #414946; text-decoration: none; transition: background-color .2s, color .2s, padding .2s; }
+	.service-row:hover { padding-inline: 18px; color: var(--ink); }
+	.service-row--blue:hover { background: var(--blue); }
+	.service-row--orange:hover { background: var(--orange); }
+	.service-row--signal:hover { background: var(--signal); }
+	.service-number { font-size: .75rem; font-weight: 800; }
+	.service-row h3 { margin: 0; font-size: clamp(1.6rem, 3vw, 3rem); letter-spacing: 0; }
+	.service-row p { max-width: 500px; margin: 0; color: #bbc1be; line-height: 1.6; }
+	.service-row:hover p { color: var(--ink); }
+	.arrow { font-size: 1.5rem; text-align: right; }
+	.proof { background: var(--paper); }
+	.proof-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 90px; }
+	.proof-copy > p { margin: 40px 0 56px; font-size: 1.2rem; line-height: 1.7; }
+	dl { margin: 0; border-top: 1px solid var(--line); }
+	dl div { display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line); }
+	dt { font-size: 2.1rem; font-weight: 850; }
+	dd { margin: 0; color: var(--muted); }
+	.testimonial { background: var(--blue); }
+	blockquote { max-width: 1060px; margin: 0; font-size: clamp(2rem, 4.5vw, 4rem); font-weight: 720; line-height: 1.16; letter-spacing: 0; }
+	.attribution { margin: 42px 0 0; font-weight: 750; }
+	@media (max-width: 800px) {
+		.hero { min-height: auto; padding-top: 64px; }
+		.hero-grid, .proof-grid { grid-template-columns: 1fr; gap: 46px; }
+		h1 { font-size: clamp(3.7rem, 17vw, 6rem); }
+		.capability-line { margin-top: 70px; flex-wrap: wrap; justify-content: flex-start; }
+		.service-row { grid-template-columns: 38px 1fr 30px; gap: 16px; padding: 28px 0; }
+		.service-row h3 { font-size: 1.6rem; }
+		.service-row p { grid-column: 2 / -1; }
+	}
+	@media (max-width: 430px) { .hero-actions { align-items: flex-start; flex-direction: column; } }
+</style>

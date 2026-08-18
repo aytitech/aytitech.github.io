@@ -1,10 +1,10 @@
 ---
-import SiteLayout from '../../layouts/SiteLayout.astro';
-import { insights } from '../../data/insights';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { insights } from '../../../data/insights';
 ---
-<SiteLayout lang="en" title="Insights | Ayti.Tech" description="Engineering insights on cloud, DevOps, platform engineering and FinOps.">
-	<section class="insights-hero"><div class="container"><p class="eyebrow">Insights</p><h1>Notes from<br />the field.</h1><p>Short, practical thinking on cloud, DevOps and modern software delivery.</p></div></section>
-	<section class="section"><div class="container list">{insights.map((item, index) => <a href={`/insights/${item.slug}`}><span>{String(index + 1).padStart(2,'0')}</span><div><p>{item.tags.join(' · ')}</p><h2>{item.en.title}</h2><p>{item.en.excerpt}</p></div><b aria-hidden="true">↗</b></a>)}</div></section>
+<SiteLayout lang="tr" title="İçgörüler | Ayti.Tech" description="Cloud, DevOps, platform engineering ve FinOps üzerine Ayti.Tech mühendislik içgörüleri.">
+	<section class="insights-hero"><div class="container"><p class="eyebrow">İçgörüler</p><h1>Sahadan<br />notlar.</h1><p>Cloud, DevOps ve modern yazılım teslimatı üzerine kısa, uygulanabilir teknik yazılar.</p></div></section>
+	<section class="section"><div class="container list">{insights.map((item, index) => <a href={`/tr/insights/${item.slug}`}><span>{String(index + 1).padStart(2,'0')}</span><div><p>{item.tags.join(' · ')}</p><h2>{item.tr.title}</h2><p>{item.tr.excerpt}</p></div><b aria-hidden="true">↗</b></a>)}</div></section>
 </SiteLayout>
 <style>
 	.insights-hero{padding:100px 0;background:var(--orange)}.insights-hero h1{margin:0;font-size:clamp(4rem,10vw,8rem);line-height:.85;letter-spacing:0}.insights-hero p:last-child{max-width:580px;margin:50px 0 0 auto;font-size:1.25rem;line-height:1.6}.list{border-top:1px solid var(--line)}.list>a{display:grid;grid-template-columns:55px 1fr 35px;gap:25px;padding:34px 0;border-bottom:1px solid var(--line);text-decoration:none}.list>a>span,.list div>p:first-child{font-size:.7rem;font-weight:850;text-transform:uppercase;letter-spacing:.08em}.list h2{max-width:800px;margin:9px 0 12px;font-size:clamp(1.6rem,3vw,2.8rem);line-height:1.15;letter-spacing:0}.list div>p:last-child{max-width:700px;margin:0;color:var(--muted);line-height:1.6}.list b{font-size:1.4rem}@media(max-width:600px){.insights-hero{padding:70px 0}.list>a{grid-template-columns:32px 1fr}.list b{display:none}}

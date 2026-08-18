@@ -1,0 +1,59 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { services } from '../../data/services';
+const groups = [
+	{ number: '01', key: 'Cloud', title: 'Cloud Temelleri', intro: 'Cloud altyapısını görünür, yönetilebilir ve değişime hazır hale getiririz.', color: 'yellow' },
+	{ number: '02', key: 'DevOps', title: 'DevOps & Delivery', intro: 'Fikirden production’a giden yolu hızlı, ölçülebilir ve güvenilir hale getiririz.', color: 'teal' },
+	{ number: '03', key: 'Platform', title: 'Platformlar & Veri', intro: 'Uygulama ve veri ekiplerine güvenli, tekrar edilebilir temeller sunarız.', color: 'blue' },
+	{ number: '04', key: 'Talent', title: 'Teknik Yetenek', intro: 'Organizasyonunuza uygun teslimat modeliyle uzman yetkinlik kazandırırız.', color: 'purple' },
+];
+---
+
+<SiteLayout lang="tr" title="Hizmetler | Ayti.Tech" description="Cloud, platform engineering, DevOps ve kurumsal teknik eğitim hizmetleri.">
+	<section class="page-hero">
+		<div class="container">
+			<p class="eyebrow">Hizmetler</p>
+			<h1>Stratejiden<br />production’a.</h1>
+			<p class="lead">Sunumla bitmeyen, çalışan sistem ve yetkin ekip bırakan teknik hizmetler.</p>
+		</div>
+	</section>
+	<section class="service-groups">
+		{groups.map((group) => (
+			<article class={`group group--${group.color}`}>
+				<div class="container group-grid">
+					<div class="group-heading"><span>{group.number}</span><h2>{group.title}</h2><p>{group.intro}</p></div>
+					<ul>{services.filter(service => service.group === group.key).map(service => <li><a href={`/tr/services/${service.slug}`}>{service.tr.title}<span aria-hidden="true">↗</span></a></li>)}</ul>
+				</div>
+			</article>
+		))}
+	</section>
+	<section class="section method">
+		<div class="container">
+			<p class="eyebrow">Çalışma modeli</p>
+			<h2 class="section-heading">Önce sistemi anlarız. Sonra birlikte değiştiririz.</h2>
+			<ol><li><b>Discover</b><span>Mevcut mimariyi, akışları ve hedefleri kanıtlarla ortaya çıkarırız.</span></li><li><b>Design</b><span>Teknik kararları, sorumlulukları ve ölçülebilir başarı kriterlerini netleştiririz.</span></li><li><b>Deliver</b><span>Ekibinizle birlikte uygular, devreye alır ve bilgiyi kalıcı hale getiririz.</span></li></ol>
+		</div>
+	</section>
+</SiteLayout>
+
+<style>
+	.page-hero { padding: 110px 0 90px; background: var(--paper-strong); }
+	h1 { margin: 0; font-size: clamp(4rem, 10vw, 8.5rem); line-height: .88; letter-spacing: 0; }
+	.lead { max-width: 650px; margin: 46px 0 0 auto; font-size: 1.35rem; line-height: 1.6; }
+	.group { padding: 90px 0; border-top: 1px solid rgba(16,22,20,.22); }
+	.group--yellow { background: var(--yellow); }.group--teal { background: var(--teal); }.group--blue { background: var(--blue); }.group--purple { background: var(--purple); }
+	.group-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; }
+	.group-heading span { font-size: .75rem; font-weight: 850; }
+	.group-heading h2 { margin: 20px 0 26px; font-size: clamp(2.5rem, 5vw, 5rem); line-height: 1; letter-spacing: 0; }
+	.group-heading p { max-width: 520px; font-size: 1.1rem; line-height: 1.65; }
+	ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(16,22,20,.35); }
+	li { border-bottom: 1px solid rgba(16,22,20,.35); font-weight: 750; }
+	li a { display: flex; justify-content: space-between; gap: 20px; padding: 22px 0; text-decoration: none; }
+	li a:hover { padding-left: 12px; }
+	.method { background: var(--ink); color: white; }
+	ol { margin: 0; padding: 0; list-style: none; counter-reset: steps; border-top: 1px solid #454d4a; }
+	ol li { counter-increment: steps; display: grid; grid-template-columns: 80px .7fr 1fr; padding: 26px 0; border-color: #454d4a; }
+	ol li::before { content: '0' counter(steps); color: var(--signal); font-size: .76rem; font-weight: 800; }
+	ol span { color: #bbc1be; line-height: 1.55; }
+	@media (max-width: 760px) { .page-hero { padding: 70px 0; }.lead { margin-left: 0; }.group { padding: 64px 0; }.group-grid { grid-template-columns: 1fr; gap: 36px; }ol li { grid-template-columns: 45px 1fr; gap: 12px; }ol span { grid-column: 2; } }
+</style>
