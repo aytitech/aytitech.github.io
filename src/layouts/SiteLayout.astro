@@ -33,7 +33,7 @@ const turkishUrl = new URL(turkishPath, Astro.site ?? Astro.url.origin);
 		<link rel="alternate" hreflang="en" href={englishUrl} />
 		<link rel="alternate" hreflang="tr" href={turkishUrl} />
 		<link rel="alternate" hreflang="x-default" href={englishUrl} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/brand/aytitech.svg" />
 		<title>{title}</title>
 	</head>
 	<body>
@@ -70,7 +70,7 @@ const turkishUrl = new URL(turkishPath, Astro.site ?? Astro.url.origin);
 			</div>
 			<div class="container footer-bottom">
 				<span class="ottoo"><img src="/brand/ottoo.svg" alt="Ottoo" /> © {new Date().getFullYear()} Ottoo Yazılım A.Ş.</span>
-				<span>{isEnglish ? 'Istanbul, Türkiye' : 'İstanbul, Türkiye'}</span>
+				<span>{isEnglish ? 'Istanbul · Berlin' : 'İstanbul · Berlin'}</span>
 			</div>
 		</footer>
 	</body>

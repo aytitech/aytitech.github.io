@@ -15,6 +15,10 @@
 - Detail routes for all 12 services and 10 enterprise training programmes
 - Seven migrated insight topics with Turkish and English detail routes
 - Original Ayti.Tech and Ottoo logos, legacy brand palette, and client logo strip
+- Official Ayti.Tech logo used as the site favicon
+- Expertise strip: AWS, Azure, Kubernetes, Cloud Native, and Open Source
+- Istanbul-based organization with a Berlin presence
+- Cafe Ayti removed from the media offering
 - Shared responsive layout, self-hosted variable font, canonical URLs, and hreflang metadata
 - Microsoft Bookings, WhatsApp, and `iletisim@ayti.tech` contact paths
 - Filtered sitemap, robots, favicon, and GitHub Pages deployment workflow
